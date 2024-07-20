@@ -31,8 +31,8 @@ public class Webutils {
 
 	/**
 	 * 
-	 * @param strint
-	 * @param defaultvalue
+	 * @param strint 字符
+	 * @param defaultvalue 默认值
 	 * @return
 	 */
 	public static int parseInt(String strint, int defaultvalue) {
@@ -41,7 +41,7 @@ public class Webutils {
 			return Integer.parseInt(strint);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		return defaultvalue;
 	}

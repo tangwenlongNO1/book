@@ -8,6 +8,17 @@
 
     <%-- 静态包含 base标签、css样式、jQuery文件 --%>
     <%@ include file="/pages/common/head.jsp" %>
+    <script type="text/javascript">
+
+        $(function (){
+            $("button.addToCart").click(function () {
+                var bookId = $(this).attr("bookId");
+                location.href = "http://localhost:8080/book/CartServlet?action=addItem&id=" + bookId;
+
+            });
+
+        });
+    </script>
 
 
 </head>
@@ -79,7 +90,7 @@
                         <span class="sp2">${book.stock}</span>
                     </div>
                     <div class="book_add">
-                        <button>加入购物车</button>
+                        <button  bookId="${book.id}" class="addToCart">加入购物车</button>
                     </div>
                 </div>
             </div>
