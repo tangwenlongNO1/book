@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/com/example/dao/UserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/pojo/Book.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/test/BookDaoImplTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/test/BookServiceImplTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/test/UserServletTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/utils/Webutils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/web/Download.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/web/LoginServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/web/RegistServlet.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
