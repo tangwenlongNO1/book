@@ -50,5 +50,50 @@ public class CartServlet extends BaseServlet {
         response.sendRedirect(request.getHeader("Referer"));
     }
 
+    /**
+     * 删除商品
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
+     */
+    protected void deleteItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-}
+        int id = Webutils.parseInt(request.getParameter("id"), 0);
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+
+        if(cart != null){
+            cart.deleteItem(id);
+        }
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+
+
+    /**
+     * 清空购物车
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
+     */
+    protected void clear(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        cart.clear();
+        response.sendRedirect(request.getHeader("Referer"));
+    }
+
+    /**
+     * 更新购物车
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
+     */
+    protected void updateItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+
+
+    }
