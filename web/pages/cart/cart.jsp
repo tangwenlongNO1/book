@@ -34,6 +34,10 @@
                 return confirm("你确定要清空购物车吗?");
                 // return false// 阻止元素的默认行为===不提交请求
             });
+
+            $(".updateCount").change(function () {
+                confirm("你确定要将【xxxx】的数量改为【xxxxx】吗？")
+            });
         });
     </script>
 
@@ -73,7 +77,7 @@
                 <tr>
                     <td>${cart.value.name}</td>
                     <td>
-                        <input type="text" style="text-align: center; width: 80px" value="${cart.value.count}"></td>
+                        <input type="text" class="updateCount" style="text-align: center; width: 80px" value="${cart.value.count}"></td>
                     <td>${cart.value.price}</td>
                     <td>${cart.value.totalPrice}</td>
                     <td><a href="CartServlet?action=deleteItem&id=${cart.value.id}" class="delete">删除</a></td>
