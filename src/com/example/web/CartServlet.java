@@ -48,6 +48,8 @@ public class CartServlet extends BaseServlet {
         System.out.println(cart);
 
         response.sendRedirect(request.getHeader("Referer"));
+
+        request.getSession().setAttribute("latestItem", cartItem.getName());
     }
 
     /**
@@ -91,6 +93,15 @@ public class CartServlet extends BaseServlet {
      * @throws IOException IO异常
      */
     protected void updateItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int id = Webutils.parseInt(request.getParameter("id"), 0);
+        int count = Webutils.parseInt(request.getParameter("count"), 0);
+
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+
+        cart.updateItem(id, count);
+
+        response.sendRedirect(request.getHeader("Referer"));
 
     }
 

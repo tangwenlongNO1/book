@@ -36,7 +36,15 @@
             });
 
             $(".updateCount").change(function () {
-                confirm("你确定要将【xxxx】的数量改为【xxxxx】吗？")
+
+                var id = $(this).attr("bookId");
+                if(confirm("你确定要将【" + $(this).parent().parent().find("td:first").text() + "】的数量改为【" + this.value + "】吗？")){
+
+                    //发起请求
+                    location.href = "${basePath}CartServlet?action=updateItem&count=" + this.value + "&id=" + id;
+                }else {
+                    this.value = this.defaultValue;
+                }
             });
         });
     </script>
@@ -77,7 +85,7 @@
                 <tr>
                     <td>${cart.value.name}</td>
                     <td>
-                        <input type="text" class="updateCount" style="text-align: center; width: 80px" value="${cart.value.count}"></td>
+                        <input type="text" class="updateCount" bookId="${cart.value.id}" style="text-align: center; width: 80px" value="${cart.value.count}"></td>
                     <td>${cart.value.price}</td>
                     <td>${cart.value.totalPrice}</td>
                     <td><a href="CartServlet?action=deleteItem&id=${cart.value.id}" class="delete">删除</a></td>
