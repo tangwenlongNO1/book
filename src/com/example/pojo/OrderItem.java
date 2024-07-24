@@ -1,7 +1,6 @@
 package com.example.pojo;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 /**
  * Class name: OrderItem
@@ -16,18 +15,22 @@ import java.sql.Date;
 public class OrderItem {
 
     private Integer id;
-    private Date date;
+    private String name;
+    private Integer count;
     private BigDecimal price;
-    private String status;
+    private BigDecimal totalPrice;
+    private String orderId;
 
     public OrderItem() {
     }
 
-    public OrderItem(Integer id, Date date, BigDecimal price, String status) {
+    public OrderItem(Integer id, String name, Integer count, BigDecimal price, BigDecimal totalPrice, String orderId) {
         this.id = id;
-        this.date = date;
+        this.name = name;
+        this.count = count;
         this.price = price;
-        this.status = status;
+        this.totalPrice = totalPrice;
+        this.orderId = orderId;
     }
 
     public Integer getId() {
@@ -38,12 +41,20 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public String getName() {
+        return name;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public BigDecimal getPrice() {
@@ -54,21 +65,31 @@ public class OrderItem {
         this.price = price;
     }
 
-    public String getStatus() {
-        return status;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     @Override
     public String toString() {
         return "OrderItem{" +
                 "id=" + id +
-                ", date=" + date +
+                ", name='" + name + '\'' +
+                ", count=" + count +
                 ", price=" + price +
-                ", status='" + status + '\'' +
+                ", totalPrice=" + totalPrice +
+                ", orderId=" + orderId +
                 '}';
     }
 }

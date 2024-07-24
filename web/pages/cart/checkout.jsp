@@ -30,7 +30,7 @@
 
 <div id="main">
 
-    <h1>你的订单已结算，订单号为<span style="color: red">2937474382928484747</span></h1>
+    <h1>你的订单已结算，订单号为<span style="color: red">${sessionScope.orderId}</span></h1>
 
 
 </div>
