@@ -7,8 +7,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
-import static org.junit.Assert.*;
+import java.util.List;
 
 /**
  * Class name: OrderDaoTest
@@ -32,10 +31,20 @@ public class OrderDaoTest {
 
     @Test
     public void queryOrders() {
+
+        OrderDao orderDao = new OrderDaoImpl();
+
+        List<Order> orders = orderDao.queryOrders();
+
+        orders.forEach(System.out::println);
     }
 
     @Test
     public void changeOrderStatus() {
+
+        OrderDao orderDao = new OrderDaoImpl();
+
+        orderDao.changeOrderStatus("17218180982681", 1);
     }
 
     @Test

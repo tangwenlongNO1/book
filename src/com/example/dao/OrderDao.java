@@ -2,6 +2,8 @@ package com.example.dao;
 
 import com.example.pojo.Order;
 
+import java.util.List;
+
 /**
  * Class name: OrderDao
  * Package name: com.example.dao
@@ -21,9 +23,13 @@ public interface OrderDao {
      */
     int saveOrder(Order order);
 
-    void queryOrders();
+    /**
+     * 查询所有订单
+     * @return List<Order> 订单
+     */
+    List<Order> queryOrders();
 
-    void changeOrderStatus(Integer orderId, Integer status);
+    int changeOrderStatus(String orderId, Integer status);
 
     void queryOrdersByUserId(Integer userId);
 

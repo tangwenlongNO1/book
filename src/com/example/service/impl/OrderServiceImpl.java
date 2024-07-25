@@ -10,6 +10,7 @@ import com.example.pojo.*;
 import com.example.service.OrderService;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -63,17 +64,22 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void showAllOrders() {
+    public List<Order> showAllOrders() {
+
+
+
+        return orderDao.queryOrders();
+    }
+
+    @Override
+    public int sendOrder(String orderId) {
+
+        return orderDao.changeOrderStatus(orderId, 1);
 
     }
 
     @Override
-    public void sendOrder(Integer orderId) {
-
-    }
-
-    @Override
-    public void showOrderDetail(Integer orderId) {
+    public void showOrderDetail(String orderId) {
 
     }
 
@@ -83,7 +89,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void receiveOrder(Integer orderId) {
+    public void receiveOrder(String orderId) {
 
     }
 }

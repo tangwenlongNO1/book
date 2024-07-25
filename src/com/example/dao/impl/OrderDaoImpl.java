@@ -3,6 +3,8 @@ package com.example.dao.impl;
 import com.example.dao.OrderDao;
 import com.example.pojo.Order;
 
+import java.util.List;
+
 /**
  * Class name: OrderDaoImpl
  * Package name: com.example.dao.impl
@@ -22,12 +24,20 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
     }
 
     @Override
-    public void queryOrders() {
+    public List<Order> queryOrders() {
 
+        String sql = "select `order_id` orderId, `create_time` createTime,`price`,`status`,`user_id` userId from t_order";
+
+
+        return queryForList(Order.class, sql);
     }
 
     @Override
-    public void changeOrderStatus(Integer orderId, Integer status) {
+    public int changeOrderStatus(String orderId, Integer status) {
+
+        String sql = "update t_order set `status`=? where `order_id`=?";
+
+        return update(sql, status, orderId);
 
     }
 

@@ -11,6 +11,7 @@ package com.example.web;
 
 
 import com.example.pojo.Cart;
+import com.example.pojo.Order;
 import com.example.pojo.User;
 import com.example.service.OrderService;
 import com.example.service.impl.OrderServiceImpl;
@@ -19,6 +20,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "OrderServlet", value = "/OrderServlet")
 public class OrderServlet extends BaseServlet {
@@ -44,18 +46,39 @@ public class OrderServlet extends BaseServlet {
         OrderService orderService = new OrderServiceImpl();
 
         String orderId = orderService.createOrder(cart, userId);
-
+        // 使用session
         request.getSession().setAttribute("orderId", orderId);
-
+        // 重定向到结算页面
         response.sendRedirect(request.getContextPath() + "/pages/cart/checkout.jsp");
 
     }
 
     protected void showAllOrders(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        OrderService orderService = new OrderServiceImpl();
+
+        List<Order> orders = orderService.showAllOrders();
+
+        request.setAttribute("orders", orders);
+
+        request.getRequestDispatcher("/pages/manager/order_manager.jsp").forward(request, response);
+
+
     }
 
     protected void sendOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String orderId = request.getParameter("orderId");
+
+        OrderService orderService = new OrderServiceImpl();
+
+        orderService.sendOrder(orderId);
+
+        request.getRequestDispatcher("/OrderServlet?action=showAllOrders").forward(request, response);
+        // response.sendRedirect(request.getContextPath() + "/pages/manager/order_manager.jsp");
+
+
+
 
     }
 
