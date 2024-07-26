@@ -31,7 +31,7 @@ public interface OrderDao {
 
     int changeOrderStatus(String orderId, Integer status);
 
-    void queryOrdersByUserId(Integer userId);
+    List<Order> queryOrdersByUserId(Integer userId);
 
 
 }

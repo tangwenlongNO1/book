@@ -49,5 +49,11 @@ public class OrderDaoTest {
 
     @Test
     public void queryOrdersByUserId() {
+
+        OrderDao orderDao = new OrderDaoImpl();
+
+        List<Order> orders = orderDao.queryOrdersByUserId(5);
+
+        orders.forEach(System.out::println);
     }
 }
