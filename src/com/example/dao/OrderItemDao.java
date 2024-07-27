@@ -2,6 +2,8 @@ package com.example.dao;
 
 import com.example.pojo.OrderItem;
 
+import java.util.List;
+
 /**
  * Class name: OrderItemDao
  * Package name: com.example.dao
@@ -21,6 +23,8 @@ public interface OrderItemDao {
      */
     int saveOrderItem(OrderItem orderItem);
 
-    void queryOrderItemsByOrderId(Integer orderId);
+    List<OrderItem> queryOrderItemsByOrderId(String orderId);
+
+    List<OrderItem> queryOrderItemsByUserId(Integer userId);
 
 }

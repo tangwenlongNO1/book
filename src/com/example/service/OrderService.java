@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.pojo.Cart;
 import com.example.pojo.Order;
+import com.example.pojo.OrderItem;
 
 import java.util.List;
 
@@ -24,9 +25,9 @@ public interface OrderService {
 
     int sendOrder(String orderId);
 
-    void showOrderDetail(String orderId);
+    List<OrderItem> showOrderDetail(String orderId);
 
-    void showMyOrders(Integer userId);
+    List<OrderItem> showMyOrders(Integer userId);
 
     void receiveOrder(String orderId);
 }

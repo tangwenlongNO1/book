@@ -3,6 +3,7 @@ package com.example.test;
 import com.example.pojo.Cart;
 import com.example.pojo.CartItem;
 import com.example.pojo.Order;
+import com.example.pojo.OrderItem;
 import com.example.service.OrderService;
 import com.example.service.impl.OrderServiceImpl;
 import org.junit.Test;
@@ -57,6 +58,10 @@ public class OrderServiceTest {
 
     @Test
     public void showOrderDetail() {
+
+        List<OrderItem> orderItems = orderService.showOrderDetail("17218189043571");
+
+        orderItems.forEach(System.out::println);
     }
 
     @Test

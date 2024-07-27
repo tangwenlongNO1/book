@@ -1,8 +1,11 @@
 package com.example.test;
 
 import com.example.dao.OrderDao;
+import com.example.dao.OrderItemDao;
 import com.example.dao.impl.OrderDaoImpl;
+import com.example.dao.impl.OrderItemDaoImpl;
 import com.example.pojo.Order;
+import com.example.pojo.OrderItem;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -55,5 +58,16 @@ public class OrderDaoTest {
         List<Order> orders = orderDao.queryOrdersByUserId(5);
 
         orders.forEach(System.out::println);
+    }
+
+    @Test
+    public void queryOrderIdByUserId() {
+
+        OrderItemDao orderItemDao = new OrderItemDaoImpl();
+
+        List<OrderItem> orderItems = orderItemDao.queryOrderItemsByUserId(1);
+
+        orderItems.forEach(System.out::println);
+
     }
 }

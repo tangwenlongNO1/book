@@ -6,8 +6,7 @@ import com.example.pojo.OrderItem;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-
-import static org.junit.Assert.*;
+import java.util.List;
 
 /**
  * Class name: OrderItemDaoTest
@@ -33,5 +32,21 @@ public class OrderItemDaoTest {
 
     @Test
     public void queryOrderItemsByOrderId() {
+
+        OrderItemDao orderItemDao = new OrderItemDaoImpl();
+
+        List<OrderItem> orderItems = orderItemDao.queryOrderItemsByOrderId("17218189043571");
+
+        orderItems.forEach(System.out::println);
+    }
+
+    @Test
+    public void queryOrderItemsByUserId() {
+
+        OrderItemDao orderItemDao = new OrderItemDaoImpl();
+
+        List<OrderItem> orderItems = orderItemDao.queryOrderItemsByUserId(1);
+
+        orderItems.forEach(System.out::println);
     }
 }
