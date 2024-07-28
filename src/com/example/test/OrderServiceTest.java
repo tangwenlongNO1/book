@@ -66,9 +66,15 @@ public class OrderServiceTest {
 
     @Test
     public void showMyOrders() {
+
+        List<Order> orders = orderService.showMyOrders(1);
+
+        orders.forEach(System.out::println);
     }
 
     @Test
     public void receiveOrder() {
+
+        orderService.receiveOrder("17218189819941");
     }
 }

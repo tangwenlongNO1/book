@@ -40,13 +40,5 @@ public class OrderItemDaoTest {
         orderItems.forEach(System.out::println);
     }
 
-    @Test
-    public void queryOrderItemsByUserId() {
 
-        OrderItemDao orderItemDao = new OrderItemDaoImpl();
-
-        List<OrderItem> orderItems = orderItemDao.queryOrderItemsByUserId(1);
-
-        orderItems.forEach(System.out::println);
-    }
 }

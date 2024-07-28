@@ -29,8 +29,19 @@ public interface OrderDao {
      */
     List<Order> queryOrders();
 
+    /**
+     * 改变订单状态
+     * @param orderId 订单Id
+     * @param status 状态
+     * @return 数据库改变行数
+     */
     int changeOrderStatus(String orderId, Integer status);
 
+    /**
+     * 通过userId查询订单
+     * @param userId 用户Id
+     * @return 订单
+     */
     List<Order> queryOrdersByUserId(Integer userId);
 
 

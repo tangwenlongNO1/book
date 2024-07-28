@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
 
             Book book = bookDao.queryBookById(cartItem.getId());
             book.setSales(book.getSales() + cartItem.getCount());
-            book.setSales(book.getStock() - cartItem.getCount());
+            book.setStock(book.getStock() - cartItem.getCount());
 
             bookDao.updateBook(book);
         }
@@ -65,7 +65,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> showAllOrders() {
-
 
 
         return orderDao.queryOrders();
@@ -86,18 +85,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderItem> showMyOrders(Integer userId) {
+    public List<Order> showMyOrders(Integer userId) {
 
-//        String orderId;
-//
-//        return orderItemDao.queryOrderItemsByOrderId(orderId);
-        return null;
+
+        return orderDao.queryOrdersByUserId(userId);
 
 
     }
 
     @Override
-    public void receiveOrder(String orderId) {
+    public int receiveOrder(String orderId) {
 
+        return orderDao.changeOrderStatus(orderId, 2);
     }
 }

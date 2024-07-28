@@ -35,7 +35,7 @@
             <tr>
                 <td>${order.createTime}</td>
                 <td>${order.price}</td>
-                <td><a href="#">查看详情</a></td>
+                <td><a href="OrderServlet?action=showOrderDetail&orderId=${order.orderId}">查看详情</a></td>
                 <c:if test="${order.status == 0}">
                     <td><a href="OrderServlet?action=sendOrder&orderId=${order.orderId}">点击发货</a></td>
                 </c:if>

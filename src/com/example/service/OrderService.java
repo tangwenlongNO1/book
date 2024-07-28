@@ -19,15 +19,45 @@ import java.util.List;
 public interface OrderService {
 
 
+    /**
+     * 生成订单
+     * @param cart 购物车
+     * @param userId 用户Id
+     * @return orderId
+     */
     String createOrder(Cart cart, Integer userId);
 
+    /**
+     * 展示所有订单
+     * @return 订单
+     */
     List<Order> showAllOrders();
 
+    /**
+     * 发货
+     * @param orderId 订单Id
+     * @return 数据库改变行数
+     */
     int sendOrder(String orderId);
 
+    /**
+     * 展示订单详情
+     * @param orderId 订单Id
+     * @return 订单item
+     */
     List<OrderItem> showOrderDetail(String orderId);
 
-    List<OrderItem> showMyOrders(Integer userId);
+    /**
+     * 我的订单
+     * @param userId 用户Id
+     * @return 订单
+     */
+    List<Order> showMyOrders(Integer userId);
 
-    void receiveOrder(String orderId);
+    /**
+     * 收货
+     * @param orderId 订单Id
+     * @return 数据库改变行数
+     */
+    int receiveOrder(String orderId);
 }

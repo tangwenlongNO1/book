@@ -23,8 +23,13 @@ public interface OrderItemDao {
      */
     int saveOrderItem(OrderItem orderItem);
 
+    /**
+     * 通过订单Id查询订单item
+     * @param orderId 订单Id
+     * @return 订单item
+     */
     List<OrderItem> queryOrderItemsByOrderId(String orderId);
 
-    List<OrderItem> queryOrderItemsByUserId(Integer userId);
+
 
 }
