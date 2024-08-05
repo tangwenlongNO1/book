@@ -12,6 +12,21 @@
     <script type="text/javascript">
         // 页面加载完成之后
         $(function () {
+
+            $("#username").blur(function (){
+                var username = this.value;
+
+                $.getJSON("http://localhost:8080/book/UserServlet", "action=ajaxExistUsername&username=" + username, function (data) {
+
+                    if (data.existUsername){
+                        $("span.errorMsg").text("用户名已存在！");
+                    }else {
+                        $("span.errorMsg").text("用户名可用！");
+
+                    }
+                })
+            });
+
             $("#code_").click(function () {
                 this.src = "${basePath}Kaptcha.jpg"
             });

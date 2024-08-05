@@ -44,6 +44,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderDao.saveOrder(order);
 
+//        int i = 12 / 0;
+
         for (Map.Entry<Integer, CartItem> entry : cart.getItems().entrySet()) {
             CartItem cartItem = entry.getValue();
 

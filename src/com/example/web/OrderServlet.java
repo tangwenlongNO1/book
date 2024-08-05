@@ -16,11 +16,11 @@ import com.example.pojo.OrderItem;
 import com.example.pojo.User;
 import com.example.service.OrderService;
 import com.example.service.impl.OrderServiceImpl;
-import com.example.utils.JdbcUtils;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -48,15 +48,8 @@ public class OrderServlet extends BaseServlet {
 
         OrderService orderService = new OrderServiceImpl();
 
-        String orderId = null;
-        try {
-            orderId = orderService.createOrder(cart, userId);
+        String orderId = orderService.createOrder(cart, userId);
 
-            JdbcUtils.commitAndClose();
-        } catch (Exception e) {
-            JdbcUtils.rollbackAndClose();
-            e.printStackTrace();
-        }
         // 使用session
         request.getSession().setAttribute("orderId", orderId);
         // 重定向到结算页面
