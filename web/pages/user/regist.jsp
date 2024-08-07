@@ -13,14 +13,14 @@
         // 页面加载完成之后
         $(function () {
 
-            $("#username").blur(function (){
+            $("#username").blur(function () {
                 var username = this.value;
 
                 $.getJSON("http://localhost:8080/book/UserServlet", "action=ajaxExistUsername&username=" + username, function (data) {
 
-                    if (data.existUsername){
+                    if (data.existUsername) {
                         $("span.errorMsg").text("用户名已存在！");
-                    }else {
+                    } else {
                         $("span.errorMsg").text("用户名可用！");
 
                     }
@@ -30,7 +30,7 @@
             $("#code_").click(function () {
                 this.src = "${basePath}Kaptcha.jpg"
             });
-            
+
             // 给注册绑定单击事件
             $("#sub_btn").click(function () {
                 // 验证用户名：必须由字母，数字下划线组成，并且长度为5到12位
@@ -161,7 +161,8 @@
                         <br/>
                         <label>验证码：</label>
                         <input class="itxt" type="text" name="code" style="width: 140px;" id="code"/>
-                        <img  id="code_" alt="" src="Kaptcha.jpg" style="width: 90px; height: 40px; float: right; margin-right: 50px">
+                        <img id="code_" alt="" src="Kaptcha.jpg"
+                             style="width: 90px; height: 40px; float: right; margin-right: 50px">
                         <br/>
                         <br/>
                         <input type="submit" value="注册" id="sub_btn"/>
