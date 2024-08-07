@@ -25,6 +25,8 @@ public abstract class BaseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+
+		response.setContentType("text/html; charset=utf-8");
 		String action = request.getParameter("action");
 
 		try {
